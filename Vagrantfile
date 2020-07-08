@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "generic/ubuntu1804"
+    config.vm.box = "jborean93/WindowsServer2012R2"
 
-    config.vm.define 'ubuntu'
+    config.vm.define 'win2012r2'
 
     # Vagrant boot needs more time on AppVeyor (see https://help.appveyor.com/discussions/problems/1247-vagrant-not-working-inside-appveyor)
     config.vm.boot_timeout = 1800
@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder ".", "/vagrant", disabled: true
 
     config.vm.provider :virtualbox do |vb|
-        vb.name = 'ubuntu'
+        vb.name = 'win2012r2'
         vb.memory = 128
         vb.cpus = 1
         # Vagrant needs this config on AppVeyor to spin up correctly (see https://help.appveyor.com/discussions/problems/1247-vagrant-not-working-inside-appveyor)
